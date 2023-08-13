@@ -1,4 +1,4 @@
-package ru.opi.active_mq.routes;
+package ru.opi.active_mq.producer;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
