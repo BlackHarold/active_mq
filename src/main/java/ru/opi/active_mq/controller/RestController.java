@@ -51,8 +51,7 @@ public class RestController {
     @GetMapping(value = "/example/{id}")
     public ResponseEntity<String> getRandomString(@PathVariable("id") Integer id) {
         String randomString = randomString(id);
-        System.out.println("random string: " + randomString);
-        return new ResponseEntity("--------------------------- got " + randomString, HttpStatus.OK);
+        return new ResponseEntity("rest request got random string is " + randomString, HttpStatus.OK);
     }
 
     String randomString(int len) {

@@ -10,11 +10,13 @@ import ru.opi.active_mq.constants.HeadersData;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+//@Component
 public class SendReceipt extends RouteBuilder {
 
-    @Autowired
+    //    @Autowired
     Headers headers;
+
+    //    @Autowired
     HeadersData headersData;
 
     @Override
