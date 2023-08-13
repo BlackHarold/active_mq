@@ -16,6 +16,8 @@ repositories {
 }
 
 dependencies {
+    implementation fileTree(dir: './build/libs')
+
     implementation 'org.springframework.boot:spring-boot-starter-activemq'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
@@ -26,8 +28,14 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+task copyDependencies(type: Copy) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from configurations.compileClasspath
+    into "${buildDir}/libs"
 }
+
+build.dependsOn(copyDependencies)
