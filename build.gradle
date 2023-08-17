@@ -25,6 +25,13 @@ dependencies {
     implementation 'org.apache.camel.springboot:camel-activemq-starter:4.0.0-RC2'
     implementation 'org.apache.camel.springboot:camel-jackson-starter:4.0.0-RC2'
     implementation 'org.apache.camel.springboot:camel-http-starter:4.0.0-RC2'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
+    implementation 'org.apache.httpcomponents:httpmime:4.5.14'
+
+
 //
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'

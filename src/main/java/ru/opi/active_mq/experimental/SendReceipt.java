@@ -2,8 +2,6 @@ package ru.opi.active_mq.experimental;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.opi.active_mq.constants.Headers;
 import ru.opi.active_mq.constants.HeadersData;
 
