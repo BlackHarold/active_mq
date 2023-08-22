@@ -25,13 +25,15 @@ public class TimerRoute extends RouteBuilder {
                 .log("after logging process ${body}")
                 .process(new ExampleProcessor())
                 .log("${body}");
+
+        from("timer:t2?period=60000")
+            .to("direct:active-mq-sender-router");
     }
 
 }
 
 @Component
 class GetCurrentTimeBean {
-
     String getCurrentTime() {
         return ("time is: " + LocalDateTime.now());
     }

@@ -7,9 +7,11 @@ import org.springframework.stereotype.Component;
 public class ActiveMqSenderRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {
-        from("timer:active-mq-time?period=10000")
+        from("direct:active-mq-sender-router").routeId("ActiveMqSenderRouter")
+//        from("timer:active-mq-time?period=10000")
                 .transform().constant("constant message")
-                .log("${body}")
+                .to("log:ActiveMqSenderRouter")
+//                .log("${body}")
                 .to("activemq:demo-active-queue");
     }
 }

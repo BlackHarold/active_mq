@@ -15,27 +15,32 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation fileTree(dir: './build/libs')
+configurations.all {
+    exclude group: "commons-logging", module: "commons-logging"
+}
 
-    implementation 'org.springframework.boot:spring-boot-starter-activemq'
+dependencies {
+//    implementation fileTree(dir: './build/libs')
+
+//    implementation 'org.springframework.boot:spring-boot-starter-activemq'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 //
-    implementation 'org.apache.camel.springboot:camel-spring-boot-starter:4.0.0-RC2'
-    implementation 'org.apache.camel.springboot:camel-activemq-starter:4.0.0-RC2'
-    implementation 'org.apache.camel.springboot:camel-jackson-starter:4.0.0-RC2'
-    implementation 'org.apache.camel.springboot:camel-http-starter:4.0.0-RC2'
+    implementation 'org.apache.camel.springboot:camel-spring-boot-starter:4.0.0'
+    implementation 'org.apache.camel.springboot:camel-activemq-starter:4.0.0'
+    implementation 'org.apache.camel.springboot:camel-jackson-starter:4.0.0'
+    implementation 'org.apache.camel.springboot:camel-http-starter:4.0.0'
+// https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring-junit5
+//    testImplementation 'org.apache.camel:camel-test-spring-junit5:4.0.0'
+    implementation 'org.apache.camel.springboot:camel-spring-boot-starter:4.0.0'
 
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
     implementation 'org.apache.httpcomponents:httpclient:4.5.14'
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
     implementation 'org.apache.httpcomponents:httpmime:4.5.14'
 
-
-//
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-//
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

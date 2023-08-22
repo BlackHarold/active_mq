@@ -78,37 +78,5 @@ public class CreateNewCrFromEsb extends RouteBuilder {
                 })
                 .removeHeaders("*");
 
-                //.process(new CheckAttachmentProcessor())
-
-                //.choice()
-                //.when(simple("${property.attachmentIsValid} == true"))
-                //.log("[${routeId}] Attachment is valid. Send files to SUID")
-                //.to("direct:FilesToSUID")
-                //.otherwise()
-                //.log("[${routeId}] Attachment is invalid. Send files to SUID canceled.")
-                //.setBody(exchange -> {
-                //    Map<String, Object> fullBody = exchange.getProperty("fullBody", Map.class);
-                //    fullBody.put("transactionState",
-                //            Collections.singletonMap("1502", "Attachment is invalid. Send files to SUID canceled."));
-                //    return fullBody;
-                //})
-                //.to("activemq:SendReceipt")
-                //.process(new CleanAllProcessor())
-                //.stop()
-                //.end()
-
-                //.setBody(simple("${exchangeProperty.fullBody}"))
-
-                //.to("direct:CommentHandler")
-
-                //.setBody(exchange -> {
-                //    Map<String, Object> fullBody = exchange.getProperty("fullBody", Map.class);
-                //    fullBody.putIfAbsent("transactionState",
-                //            Collections.singletonMap("1204", "Create new object successful."));
-                //    return fullBody;
-                //})
-                //.to("activemq:SendReceipt")
-                //.process(new CleanAllProcessor());
-
     }
 }

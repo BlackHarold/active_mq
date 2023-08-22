@@ -8,6 +8,7 @@ public class RestRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         restConfiguration().host("localhost").port("{{server.port}}");
+
         from("timer:hello?period={{long.timer.period}}")
                 .setHeader("id", simple("${random(6,9)}"))
                 .to("rest:get:example/{id}")
