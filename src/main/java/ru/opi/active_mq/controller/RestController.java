@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.SecureRandom;
 
-@Controller
+//@Controller
 public class RestController {
 
-    @Autowired
+//    @Autowired
     private JmsTemplate jmsTemplate;
 
     //FIXME FAILED TO START

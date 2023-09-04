@@ -20,22 +20,30 @@ configurations.all {
 }
 
 dependencies {
-//    implementation fileTree(dir: './build/libs')
+    implementation fileTree(dir: './build/libs')
 
-//    implementation 'org.springframework.boot:spring-boot-starter-activemq'
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-core
+    implementation 'org.apache.camel:camel-core:4.0.0'
+
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-endpointdsl
+    implementation 'org.apache.camel:camel-endpointdsl:4.0.0'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
-//
+
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter:4.0.0'
     implementation 'org.apache.camel.springboot:camel-activemq-starter:4.0.0'
     implementation 'org.apache.camel.springboot:camel-jackson-starter:4.0.0'
     implementation 'org.apache.camel.springboot:camel-http-starter:4.0.0'
-// https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring-junit5
-//    testImplementation 'org.apache.camel:camel-test-spring-junit5:4.0.0'
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter:4.0.0'
 
-    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+// https://mvnrepository.com/artifact/org.apache.camel/camel-servlet
+    implementation 'org.apache.camel:camel-servlet:4.0.0'
+
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-rest
+//    implementation 'org.apache.camel:camel-rest:4.0.0'
+
+
     implementation 'org.apache.httpcomponents:httpclient:4.5.14'
-    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
     implementation 'org.apache.httpcomponents:httpmime:4.5.14'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -50,5 +58,3 @@ task copyDependencies(type: Copy) {
     from configurations.compileClasspath
     into "${buildDir}/libs"
 }
-
-build.dependsOn(copyDependencies)

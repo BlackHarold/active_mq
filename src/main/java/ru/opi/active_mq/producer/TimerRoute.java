@@ -10,15 +10,18 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
+import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.minio;
+import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.timer;
+
+//@Component
 public class TimerRoute extends RouteBuilder {
 
-    @Autowired
+//    @Autowired
     LoggingProcessingComponent logProcess;
 
     @Override
     public void configure() throws Exception {
-        from("timer:t1?period=10000")
+        from(minio("").delay("t1")/*"timer:t1?period=10000"*/.deleteAfterRead(false)).routeId("")
                 .bean("getCurrentTimeBean")
                 .log("after current time bean ${body}")
                 .bean(logProcess)
@@ -26,10 +29,9 @@ public class TimerRoute extends RouteBuilder {
                 .process(new ExampleProcessor())
                 .log("${body}");
 
-        from("timer:t2?period=60000")
+        from(timer("t2").period(60000))
             .to("direct:active-mq-sender-router");
     }
-
 }
 
 @Component
