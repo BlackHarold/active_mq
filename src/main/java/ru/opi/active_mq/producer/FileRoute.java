@@ -9,7 +9,7 @@ public class FileRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 //        from("file:files/input?noop=true")
-        from("file:files/input")
+        from("file:files/input").routeId("file-input")
                 .log("${body}")
                 .filter().method(FileFilter.class)
                 .to("file:files/output");
