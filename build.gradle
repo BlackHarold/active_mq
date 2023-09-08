@@ -35,6 +35,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.camel/camel-activemq
     implementation 'org.apache.camel:camel-activemq:4.0.0'
 
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-api
+    implementation 'org.apache.camel:camel-api:4.0.0'
+
+
 }
 
 task copyDependencies(type: Copy) {

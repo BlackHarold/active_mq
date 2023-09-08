@@ -1,5 +1,6 @@
 package ru.opi.active_mq.controller;
 
+import org.apache.camel.FluentProducerTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +22,19 @@ public class RestController {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    //FIXME FAILED TO START
-    // Field queue in ru.bluewhale.active_mq.controller.RestController required a bean of type 'jakarta.jms.Queue' that could not be found.
-    // @Autowired
-    // private Queue queue;
-
     Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    FluentProducerTemplate template;
+
+    @GetMapping("/fluent")
+    public String getProducer() {
+        return template.to("direct:SUIDAuth").request(String.class);
+    }
+
 
     @GetMapping("/message/{msg}")
     public ResponseEntity<String> publishMessage(@PathVariable("msg") String content) {
-        //FIXME
-        // does not work
         jmsTemplate.convertAndSend("local.inmemory.queue", content);
         logger.info("Message published : " + content);
 
