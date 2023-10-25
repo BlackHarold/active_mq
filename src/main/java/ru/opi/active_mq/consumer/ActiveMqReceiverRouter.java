@@ -3,7 +3,7 @@ package ru.opi.active_mq.consumer;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class ActiveMqReceiverRouter extends RouteBuilder {
     @Override
     public void configure() throws Exception {

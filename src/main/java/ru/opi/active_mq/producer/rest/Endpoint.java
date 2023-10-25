@@ -27,7 +27,9 @@ public class Endpoint extends RouteBuilder {
                 .endParam()
                 .to("direct:helloFCR");
 
-        rest("/go").get("/auth")
+        rest("/go").get("/auth").tag("dude").description("some description")
+                .consumes(MediaType.APPLICATION_JSON_VALUE)
+                .produces(MediaType.APPLICATION_JSON_VALUE)
                 .to("direct:SuidAuthRoute");
 
         rest("/active").get()

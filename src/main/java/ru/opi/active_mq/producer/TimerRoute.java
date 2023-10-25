@@ -29,8 +29,8 @@ public class TimerRoute extends RouteBuilder {
                 .process(new ExampleProcessor())
                 .log("${body}");
 
-        from(timer("t2").period(60000))
-            .to("direct:active-mq-sender-router");
+//        from(timer("t2").period(60000))
+//            .to("direct:active-mq-sender-router");
     }
 }
 
