@@ -45,7 +45,7 @@ dependencies {
 
 
     // https://mvnrepository.com/artifact/org.apache.camel/camel-api
-    implementation 'org.apache.camel:camel-api:4.0.0'
+    //    implementation 'org.apache.camel:camel-api:4.0.0'
 
     // https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-openapi-java-starter
     implementation 'org.apache.camel.springboot:camel-openapi-java-starter:4.0.0'
@@ -61,6 +61,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.4'
+
+
+
 
 }
 
