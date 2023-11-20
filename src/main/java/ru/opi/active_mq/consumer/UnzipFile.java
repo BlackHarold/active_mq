@@ -6,10 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Iterator;
 
-import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.file;
-import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.log;
+import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.*;
 
-//@Component
+@Component
 public class UnzipFile extends RouteBuilder {
     @Override
     public void configure() throws Exception {
@@ -19,7 +18,7 @@ public class UnzipFile extends RouteBuilder {
         from(file("input")).routeId("UnzipFile")
                 .unmarshal(zipFile)
                 .split(bodyAs(Iterator.class)).streaming()
-                .log("zipFileName ${headers}")
-                .to(log("zip file").showAll(true));
+                .log("zipFileName ${headers.zipFileName}")
+                .to(mock("result"));
     }
 }
