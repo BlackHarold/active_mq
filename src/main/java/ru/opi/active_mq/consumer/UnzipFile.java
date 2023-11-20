@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.file;
 import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.log;
 
-@Component
+//@Component
 public class UnzipFile extends RouteBuilder {
     @Override
     public void configure() throws Exception {
